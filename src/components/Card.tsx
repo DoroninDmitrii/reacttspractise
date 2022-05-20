@@ -1,24 +1,23 @@
-import React from 'react';
+import { type } from '@testing-library/user-event/dist/type';
+import React, { useState } from 'react';
 
 export enum CardVariant {
-  outlined='outlined',
-  primary='primary'
+  outline = 'outline',
+  primary = 'primary'
 }
 
 interface CardProps {
-  width?: string;
-  height?: string;
-  children?: React.ReactChild | React.ReactNode;
-  variant: CardVariant;
+  width: string,
+  height: string,
+  variant: CardVariant,
+  children: React.ReactChild | React.ReactNode,
   onClick: () => void
 }
 
-const Card = ({width, height, children, variant, onClick}: CardProps) => {
+const Card = ({width, height, children, variant, onClick} : CardProps) => {
   
   return (
-    <div style={{width, height, border: variant === CardVariant.outlined ? '5px solid blue' : 'none', 
-    background: variant === CardVariant.primary ? 'green' : ''
-    }} onClick={onClick}>
+    <div style={{width, height, background: variant === CardVariant.outline ? 'blue' : 'grey', border: variant === CardVariant.primary ? '10px solid green' : 'none'}} onClick={onClick}>
       {children}
     </div>
   );
