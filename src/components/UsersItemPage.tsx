@@ -21,6 +21,7 @@ const UsersItemPage: FC = () => {
     navigate('/users')
   }
 
+  
   async function fetchUser() {
     try {
       const response = await axios.get<IUser>(`https://jsonplaceholder.typicode.com/users/${params.id}`)
